@@ -6,9 +6,13 @@ The project demonstrates the following concepts :-
 * Microservice discovery using Netflix Eureka (Spring Cloud)
 * Containerisation of microservices using Docker
 
+## Prerequisites
+- JDK 1.8 or later
+- Maven 3.x
+- Docker - Download and install : <https://www.docker.com/products/overview>
+
 ## How to run
 * Clone the project
 * Build the parent project using : __mvn clean install__
-* Download and install Docker : <https://www.docker.com/products/overview>
 * Go to the __docker__ folder under this project and run the command : __docker compose up__
 * Open <http://localhost:8761/> in your browser to see the services registered to Eureka
