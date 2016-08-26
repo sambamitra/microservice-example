@@ -1,0 +1,10 @@
+discovery:
+  image: sambamitra/discovery-server
+  ports:
+   - "8761:8761"
+employee:
+  image: sambamitra/employee-service
+  ports:
+   - "9000:9000"
+  links:
+   - discovery
