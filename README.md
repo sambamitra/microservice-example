@@ -4,6 +4,7 @@ The project demonstrates the following concepts :-
 
 * Microservice development using Spring Boot
 * Microservice discovery using Netflix Eureka (Spring Cloud)
+* Routing and reverse proxy using Netflix Zuul (Spring Cloud)
 * Containerisation of microservices using Docker
 
 ## Prerequisites
