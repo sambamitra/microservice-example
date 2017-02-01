@@ -24,7 +24,7 @@ public class ServiceController {
 	@GetMapping(value = "/available", produces = MediaType.TEXT_PLAIN_VALUE)
 	@ApiOperation(httpMethod = "GET", value = "/available", notes = "This endpoint fetches the available books")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Available books fetched successfully"),
-			@ApiResponse(code = 404, message = "No available book not found"),
+			@ApiResponse(code = 404, message = "No available book found"),
 			@ApiResponse(code = 500, message = "Error while processing the request") })
 	public ResponseEntity<String> available() {
 		LOGGER.info("Fetching available books");
@@ -34,7 +34,7 @@ public class ServiceController {
 	@GetMapping(value = "/checked-out", produces = MediaType.TEXT_PLAIN_VALUE)
 	@ApiOperation(httpMethod = "GET", value = "/available", notes = "This endpoint fetches the checked out books")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Checked out books fetched successfully"),
-			@ApiResponse(code = 404, message = "No checked out book not found"),
+			@ApiResponse(code = 404, message = "No checked out book found"),
 			@ApiResponse(code = 500, message = "Error while processing the request") })
 	public ResponseEntity<String> checkedOut() {
 		LOGGER.info("Fetching checked out books");

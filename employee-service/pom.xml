@@ -20,6 +20,9 @@
 		<java.version>1.8</java.version>
 		<docker.plugin.version>0.4.11</docker.plugin.version>
 		<docker.image.prefix>sambamitra</docker.image.prefix>
+		<integration-tests.skip>true</integration-tests.skip>
+		<unit-tests.skip>false</unit-tests.skip>
+		<swagger.version>2.3.0</swagger.version>
 	</properties>
 
 	<dependencies>
@@ -44,10 +47,23 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
+		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- Documentation -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -94,7 +110,30 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<configuration>
+					<skipTests>${integration-tests.skip}</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>${unit-tests.skip}</skipTests>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>integration</id>
+			<properties>
+				<integration-tests.skip>false</integration-tests.skip>
+				<unit-tests.skip>true</unit-tests.skip>
+			</properties>
+		</profile>
+	</profiles>
 </project>
