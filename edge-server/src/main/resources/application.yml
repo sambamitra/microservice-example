@@ -1,14 +1,49 @@
 server:
   port: 8765
+  ssl:
+    key-store: classpath:server/edgeserver.jks
+    key-store-password: s3cr3t
+    key-password: s3cr3t
+    trust-store: classpath:server/edgeserver.jks
+    trust-store-password: s3cr3t
+    client-auth: want
+    protocol: TLSv1.2
+  client:
+    key-store: server/edgeserver.jks
+    key-store-password: s3cr3t
+    trust-store: server/edgeserver.jks
+    trust-store-password: s3cr3t
+    protocol: TLSv1.2
 eureka:
+  instance:
+    hostname: localhost
+    securePort: ${server.port}
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    statusPageUrl: https://${eureka.instance.hostname}:${server.port}/info
+    healthCheckUrl: https://${eureka.instance.hostname}:${server.port}/health
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: https://localhost:8761/eureka/
+ribbon:
+  IsSecure: true
 zuul:
   #Service will be mapped under the /api URI
   prefix: /api
 #  Uncomment to disable auto-registering all services read from Eureka
-#  ignoredServices: '*'
+  ignoredServices: '*'
   routes:
-    book: /book/**
-    employee-service: /employee/**
+    book:
+      path: /book/**
+      service-id: book
+    employee-service:
+      path: /employee/**
+      service-id: employee-service
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 20000
