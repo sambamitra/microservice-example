@@ -1,3 +1,13 @@
+server:
+  client:
+    key-store: server/bookservice.jks
+    key-store-password: s3cr3t
+    trust-store: server/bookservice.jks
+    trust-store-password: s3cr3t
+    protocol: TLSv1.2
 eureka:
   client:
     enabled: false
+service:
+  api:
+    url: https://localhost:${server.port}/

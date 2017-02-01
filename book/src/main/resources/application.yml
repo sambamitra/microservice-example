@@ -1,6 +1,24 @@
 server:
   port: 8081
+  ssl:
+    key-store: classpath:server/bookservice.jks
+    key-store-password: s3cr3t
+    key-password: s3cr3t
+    trust-store: classpath:server/bookservice.jks
+    trust-store-password: s3cr3t
+    client-auth: want
+    protocol: TLSv1.2
+  client:
+    key-store: server/bookservice.jks
+    key-store-password: s3cr3t
+    trust-store: server/bookservice.jks
+    trust-store-password: s3cr3t
+    protocol: TLSv1.2
 eureka:
+  instance:
+    nonSecurePortEnabled: false
+    securePortEnabled: true
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: https://localhost:8761/eureka/
+    
