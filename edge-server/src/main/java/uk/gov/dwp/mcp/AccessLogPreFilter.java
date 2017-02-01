@@ -10,7 +10,7 @@ import com.netflix.zuul.context.RequestContext;
 
 public class AccessLogPreFilter extends ZuulFilter {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(AccessLogPreFilter.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(AccessLogPreFilter.class);
 
 	@Override
 	public int filterOrder() {

@@ -20,13 +20,13 @@ public class ServiceControllerTest {
 
 	@Test
 	public void testAvailable() throws Exception {
-		this.mockMvc.perform(get("/available")).andExpect(status().isOk())
+		this.mockMvc.perform(get("/api/book/available")).andExpect(status().isOk())
 				.andExpect(content().string("Spring in Action"));
 	}
 
 	@Test
 	public void testCheckedOut() throws Exception {
-		this.mockMvc.perform(get("/checked-out")).andExpect(status().isOk())
+		this.mockMvc.perform(get("/api/book//checked-out")).andExpect(status().isOk())
 				.andExpect(content().string("Spring Boot in Action"));
 	}
 

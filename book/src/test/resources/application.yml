@@ -10,4 +10,4 @@ eureka:
     enabled: false
 service:
   api:
-    url: https://localhost:${server.port}/
+    url: https://localhost:${server.port}/api/book
