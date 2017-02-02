@@ -32,7 +32,7 @@ The project demonstrates the following concepts :-
 ![Microservice Architecture](Microservice Architecture.png)
 
 ## Security between services
-HTTPS has been configured for the full service stack. The supported version is TLS 1.2.
+HTTPS has been configured for the full service stack. The supported SSL version is TLS 1.2.
 * Edge Server -> API Gateway - One way SSL
 * API Gateway -> Microservices - Two way SSL (mutual authentication)
 * Services -> Discovery Server - One way SSL
