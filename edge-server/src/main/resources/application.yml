@@ -30,15 +30,13 @@ ribbon:
 zuul:
   #Service will be mapped under the /api URI
   prefix: /api
+  strip-prefix: false
 #  Uncomment to disable auto-registering all services read from Eureka
   ignoredServices: '*'
   routes:
-    book:
-      path: /book/**
-      service-id: book
-    employee-service:
-      path: /employee/**
-      service-id: employee-service
+    api:
+      path: /**
+      service-id: api-gateway
 hystrix:
   command:
     default:

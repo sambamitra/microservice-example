@@ -6,7 +6,7 @@ server:
     key-password: s3cr3t
     trust-store: classpath:server/employeeservice.jks
     trust-store-password: s3cr3t
-    client-auth: want
+    client-auth: need
     protocol: TLSv1.2
   client:
     key-store: server/employeeservice.p12
