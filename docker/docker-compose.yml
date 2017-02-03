@@ -2,9 +2,24 @@ discovery:
   image: sambamitra/discovery-server
   ports:
    - "8761:8761"
-employee:
-  image: sambamitra/employee-service
+edge:
+  image: sambamitra/edge-server
   ports:
-   - "9000:9000"
+   - "8761:8761"
+  links:
+   - discovery
+   - apigw
+   - book
+apigw:
+  image: sambamitra/api-gateway
+  ports:
+   - "8080:8080"
+  links:
+   - discovery
+   - book
+book:
+  image: sambamitra/book
+  ports:
+   - "8081:8081"
   links:
    - discovery
