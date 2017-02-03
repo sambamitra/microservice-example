@@ -11,22 +11,18 @@ The project demonstrates the following concepts :-
 * Correlation between microservices using Spring Cloud Sleuth
 * Containerisation of microservices using Docker (WIP)
 
-## Prerequisites
-- JDK 1.8 or later
-- Maven 3.x
-- Docker - Download and install : <https://www.docker.com/products/overview>
-
 ## How to run
-* Clone the project
-* Build the parent project (or individual projects) using : __mvn clean install -DskipDockerBuild__
-* Run the components using : __java -jar [name_of_jar].jar__. Run the services in the following order :
+Please visit the individual projects for instructions to run the components.
+* [Discovery Server](https://github.com/sambamitra/discovery-server)
+* [Edge Server](https://github.com/sambamitra/edge-server)
+* [Api Gateway](https://github.com/sambamitra/api-gateway)
+* [Book micro-service](https://github.com/sambamitra/book)
+* [Employee micro-service](https://github.com/sambamitra/employee)
+* Run the services in the following order :
  1. discovery
  2. edge
- 3. All other individual microservices (book, employee etc.)
+ 3. All other individual micro-services (book, employee etc.)
  4. api-gateway
-* For checking discovery server status, go to <https://localhost:8761>. This should show all the services registered to Eureka.
-* For checking individual services, go to __https://localhost:[port]/swagger_ui.html__. This should show the API documentation for the service and you can test out the endpoints.
-* For checking the edge server, go to <https://localhost:8765/api/book/available>. This should route the request to the api-gateway and give back the response.
 
 ## Architecture diagram
 ![Microservice Architecture](Microservice Architecture.png)
