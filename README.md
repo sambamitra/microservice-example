@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/sambamitra/microservice-example.svg?branch=master)](https://travis-ci.org/sambamitra/microservice-example)
 # Microservice Example based on Spring Cloud
 This is an example project to demonstrate building micro-services using Spring Boot and Spring Cloud. 
 The project demonstrates the following concepts :-
