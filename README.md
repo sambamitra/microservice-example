@@ -25,7 +25,7 @@ Please visit the individual projects for instructions to run the components.
  4. api-gateway
 
 ## Architecture diagram
-![Microservice Architecture](Microservice Architecture.png)
+![Microservice Architecture](Microservice Architecture.png?raw=true "Microservice Architecture")
 
 ## Security between services
 HTTPS has been configured for the full service stack. The supported SSL version is TLS 1.2.
